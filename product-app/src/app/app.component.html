@@ -1,0 +1,28 @@
+<!--template/view-->
+
+<div>
+    <h2>Welcome {{title}}</h2>
+    
+
+    <app-header></app-header>
+
+    <!-- <app-home>
+
+    </app-home>
+
+    <app-about></app-about>
+
+    <app-contact></app-contact>
+
+    <app-cart></app-cart> -->
+
+    <!-- step 2: placeholder for component view-->
+
+    <router-outlet></router-outlet>
+
+    <div>
+        <!--parent to child communication-->
+    <app-footer [x-company]="title"  (contactEvent)="onContact($event)"></app-footer>
+
+    </div> 
+</div>

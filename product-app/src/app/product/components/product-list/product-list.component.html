@@ -1,0 +1,6 @@
+<h2>Product List</h2>
+
+<div *ngFor = "let product of (products$ | async)" class="flex two">
+
+  <app-product-widget [product]="product"></app-product-widget>
+</div>

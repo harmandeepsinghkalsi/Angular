@@ -1,0 +1,60 @@
+<h2>
+  Product Edit - {{product.name}} </h2>
+
+<form (ngSubmit)="saveProduct()" #productForm="ngForm">
+  <p *ngIf="productForm.dirty">
+    Form Changed
+  </p>
+
+  <p *ngIf="productForm.invalid">
+    Form is invalid
+  </p>
+
+  <label for="name">
+    Name
+  </label>
+  <input name="name" [(ngModel)]="product.name" required minlength="2" #productName="ngModel" />
+
+  <p *ngIf="productName.invalid">
+    Invalid Input name
+    </p>
+
+    <pre *ngIf="productName.errors">
+      {{productName.errors | json}}
+      </pre>
+
+      <label for="price">
+        Price
+      </label>
+      <input name="price" type="number" [(ngModel)]="product.price" />
+
+
+      <label for="year">
+        Year
+      </label>
+      <input name="year" type="number" [(ngModel)]="product.year" />
+
+
+      <label for="weight">
+        Weight
+      </label>
+      <input name="weight" [(ngModel)]="product.weight" />
+
+      <label for="brandId">
+        Brand
+      </label>
+
+      <select name="brandId" [(ngModel)]="product.brandId">
+        <option [value]="brand.id" *ngFor="let brand of (brand$ | async )">
+          {{brand.name}}
+        </option>
+      </select>
+      <button type="submit">
+        Save
+      </button>
+
+</form>
+
+<button (click)="goToList()">
+  List Page
+</button>

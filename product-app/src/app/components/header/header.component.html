@@ -1,0 +1,25 @@
+<p><b>
+  Header Component
+</b></p>
+<div>
+    <a routerLink="/" 
+    class="button" 
+    routerLinkActive="success"
+    [routerLinkActiveOptions]="{exact: true}"
+ > Home</a>
+
+  <a routerLink="/products"  class ="button" routerLinkActive= "success" [routerLinkActiveOptions]="{exact: true}">Products</a>
+
+  <a routerLink="/cart"   class ="button" routerLinkActive= "success" [routerLinkActiveOptions]="{exact: true}">Cart</a>
+  <a routerLink="/about"   class ="button" routerLinkActive= "success" [routerLinkActiveOptions]="{exact: true}">About</a>
+
+  <a routerLink="/contact"  class ="button"  routerLinkActive= "success" [routerLinkActiveOptions]="{exact: true}">Contact</a>
+</div>
+<div>
+  <app-auth-menu></app-auth-menu>
+</div>
+<div> 
+    <span>
+      Amount : {{amount$ | async | currency:'INR'}} <!-- async also does the subscribe part . This helps in lessening of code-->
+    </span>
+</div>

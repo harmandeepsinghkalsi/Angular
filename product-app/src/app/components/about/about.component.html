@@ -1,0 +1,59 @@
+<div>
+<h2 appHighlight color="lightgreen"><b>About Page</b> <!-- h2 is the -->
+
+</h2>
+
+<h2  appHighlight="lightgreen" #highlight1="appHighlight"  >About</h2>
+
+<p>Color is {{highlight1.color}}</p> 
+
+
+<button (click)="highlight1.setColor('purple')">
+    Change Color
+ </button>
+
+<!-- this div is the host of the directive-->
+<div [ngClass]="{highlight : isMouseHover}" 
+(mouseenter)="isMoverHover=true" 
+(mouseleave)="isMoverHover=false"  
+
+appHighlight
+color="lightblue"
+
+
+
+*ngIf ="show else notShown"> 
+  <ul>
+    <li *ngFor ="let member of members">
+        {{member}}
+    </li>
+  </ul>
+
+</div>
+
+<button (click)=empty()>Empty</button>
+
+<button (click)="addMember('Ghuse kam na karo!!!')">Add Member</button>
+
+<button (click)="show = !show">{{show ? "Hide" : "Show"}}</button>
+
+<!-- template reference variable-->
+<ng-template #notShown>
+<p>
+    Kidhar muh chakya!!
+</p>
+
+</ng-template>
+
+<input #memberName/>
+
+<p #p1> </p>
+
+<button (click)="p1.textContent = memberName.value">Set Name</button>
+<button (click)="addMember(memberName.value)">Add member</button>
+
+<p>About Likes{{aboutLikes}}></p>
+
+<app-like [(likes)]="aboutLikes"></app-like>
+
+</div>
